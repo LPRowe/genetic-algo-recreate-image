@@ -4,7 +4,7 @@
 
 ### Image Reconstruction with Genetic Algorithm
 
-<b>ga_image_3_color.py</b><br>
+#### <b>ga_image_3_color.py</b><br>
 
 1. Takes <b>image/python-logo-50-50.png</b> and maps it's pixels to three integers {blue pixels: 0, yellow pixels: 1, white pixels: 2}.<br>
 2. Flattens the categorized image from 50 x 50 to a 1D array of length 2500.  This is the target array.  
@@ -17,7 +17,7 @@ Breeding consists of randomly selecting 2 fit agents and creating 2 children by 
 This way if all of the parents have a certain gene that is bad, there is still a chance that the child could get a good value for that gene.<br>
 7. The process of evaluating fitness, breeding, and mutating is then repeated resulting in a steady increase in the fitness of the average agent.<br><br>
 
-<b>settings</b><br>
+#### <b>settings</b><br>
 
 <b>generations</b>: how many generations to run for, simulation automatically stops when a perfect agent is born<br>
 <b>target</b>: the target image after converting blue -> 0, yellow -> 1, white -> 2 and flattening to 1D<br>
