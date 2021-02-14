@@ -4,9 +4,9 @@ Created on Sat Feb 29 23:58:35 2020
 
 @author: Logan Rowe
 
-I will attempt to recreate an image using the genetic algorithm
+Trains an agent to mimic a target image using the genetic algorithm
 
-To keep things simple I will limit the image to three shades: white, gray, black
+To keep things simple the image is limited to to three colors.
 """
 
 import random
@@ -14,27 +14,18 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import random
 
 class Agent(object):
-    def __init__(self,length):
-        
-        #Initialize flattened image guess as [0,0,0,1,0,1,1,0,.....]
-        self.arr=np.random.randint(0,2,length)
-        
-        #Prior to fit use -1 to denote not fitted
-        self.fitness=-1
+    def __init__(self, n):
+        self.arr = [random.randint(0, 2) for _ in range(n)]
+        self.fitness = -1
         
     def __str__(self):
         return '\nFitness: '+str(self.fitness)
     
 
-in_img=None
-in_img_size=None
-population=20
-generations=300
-mutation_rate=0.03
 
-values=[0,1]
 
 def ga():
     '''
@@ -149,16 +140,19 @@ def black_and_white(img):
     
     return arr.astype(int)
 
+def 
+
 if __name__=='__main__':
-    in_img_name='logo-10-12.png'
-    #Load image to be recreated by genetic algorithm
-    in_img=np.array(Image.open('./'+in_img_name))
+    population=500
+    generations=300
+    mutation_rate=0.03
     
-    #Convert image to black and white to limit the potential values for each pixel
+    
+    
+    in_img_name=r'images\python-logo-50-50.png'
+    in_img=np.array(Image.open(in_img_name))
     in_img=black_and_white(in_img)
     in_x,in_y=in_img.shape
-    
-    #Convert image to a 1-d array so that the genetic algorithm can treat it like a list
     in_img=np.reshape(in_img,(1,-1))[0]
     
     in_img_size=len(in_img)
